@@ -13,9 +13,11 @@ Moment 2.24.0
 
 
 ## Instalación
-npm i
+npm i - Para instalar dependencias
 
-ionic serve
+ionic serve - Para compilar en navegador
 
+ionic cordova build android --prod - Para compilar a producción
 
 ## Extra
+El proyecto contiene validaciones para RUT, Fecha de Nacimiento y Teléfono, además se detecta un bug de BD en la Dirección de un usuario.
