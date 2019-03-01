@@ -14,11 +14,13 @@ export class HomePage implements OnInit {
   public users: User[]
   public searchItem: string
   public active: number
+  public loading: boolean
   @ViewChild(IonSegment) segment: IonSegment
 
   constructor(private _userService: UserService, private _modalCtrl: ModalController) {
     this.searchItem = null
     this.active = 100
+    this.loading = true
   }
 
   ngOnInit() {
@@ -31,6 +33,7 @@ export class HomePage implements OnInit {
     res => {
       res.sort((a, b) => a.apellido.localeCompare(b.apellido))
       this.users = res
+      this.loading = false
     })
 
   // Escuchar cambios en componente Segment

@@ -21,6 +21,10 @@
 </ion-header>
 
 <ion-content>
+  <div *ngIf="loading" class="spinner">
+    <ion-spinner name="lines"></ion-spinner>
+  </div>
+
   <ion-list>
     <ion-item *ngFor="let user of users | searchUserByName : searchItem | segmentUserByActive : active"
       (click)="goToUserDetail(user)" lines="inset" detail>
