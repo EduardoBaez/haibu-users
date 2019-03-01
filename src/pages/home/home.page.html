@@ -1,0 +1,35 @@
+<ion-header no-border padding>
+  <ion-toolbar>
+    <ion-title>Haibu Users</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar animated placeholder="Buscar" color="light" [(ngModel)]="searchItem"></ion-searchbar>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-segment (ionChange)="segmentChanged($event)" color="dark">
+      <ion-segment-button value="100">
+        <ion-label>Todos</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="1">
+        <ion-label>Activos</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="0">
+        <ion-label>Inactivos</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let user of users | searchUserByName : searchItem | segmentUserByActive : active"
+      (click)="goToUserDetail(user)" lines="inset" detail>
+      <ion-icon *ngIf="user.activo === 1" name="contact" slot="start" size="large" color="warning"></ion-icon>
+      <ion-icon *ngIf="user.activo === 0" name="contact" slot="start" size="large" color="medium"></ion-icon>
+      <ion-label text-wrap>
+        <h2>{{user.nombre}}</h2>
+        <p>{{user.apellido}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

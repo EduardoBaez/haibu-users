@@ -1,0 +1,6 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "HaibuUsers",
+  "bundledWebRuntime": false,
+  "webDir": "www"
+}
