@@ -44,10 +44,11 @@
       </ion-label>
     </ion-item>
     <ion-item line="inset">
+      <ion-icon *ngIf="!statusAddress" slot="start" name="alert" color="danger"></ion-icon>
       <ion-label>
         <h3>DIRECCIÓN</h3>
         <p>{{ user.direccion.calle }} #{{ user.direccion.numero }},
-          {{ user.direccion.comuna }}{{ user.direccion.nombre }}</p>
+          {{ user.direccion.comuna }}</p>
       </ion-label>
     </ion-item>
   </ion-list>

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core'
 import { ModalController, AlertController } from '@ionic/angular';
 import { User } from '../../models/user'
+import { Address } from '../../models/address'
 import * as moment from 'moment'
 
 @Component({
@@ -13,17 +14,21 @@ export class UserDetailPage implements OnInit {
   public statusRut: boolean
   public statusBirthdate: boolean
   public statusPhone: boolean
+  public statusAddress: boolean
   public rutError: object
   public birthdateError: object
   public phoneError: object
+  public addressError: object
 
   constructor(private _modalCtrl: ModalController, private _alertCtrl: AlertController) {
     this.statusRut = true
     this.statusBirthdate = true
     this.statusPhone = true
+    this.statusAddress = true
     this.rutError = { header: 'RUT', subHeader: 'Incorrecto', message: 'El RUT es incorrecto.', buttons: ['OK'] }
     this.birthdateError = { header: 'Fecha de Nacimiento', subHeader: 'Incorrecta', message: 'La fecha de nacimiento es incorrecta.', buttons: ['OK'] }
     this.phoneError = { header: 'Teléfono', subHeader: 'Incorrecto', message: 'El teléfono es incorrecto.', buttons: ['OK'] }
+    this.addressError = { header: 'Dirección', subHeader: 'Incorrecta', message: 'La dirección es incorrecta.', buttons: ['OK'] }
   }
 
   ngOnInit() {
@@ -40,6 +45,7 @@ export class UserDetailPage implements OnInit {
     this.validateRut(this.user.rut)
     this.validateBirthdate(this.user.fechaNacimiento)
     this.validatePhone(this.user.telefono)
+    this.validateAddress(this.user.direccion)
   }
 
   // Validar Teléfono
@@ -67,6 +73,14 @@ export class UserDetailPage implements OnInit {
     }
     
     this.statusBirthdate = true
+  }
+
+  validateAddress = (address: Address) => {
+    if (!address.comuna) {
+      this.statusAddress = false
+      this.presentAlert(this.addressError) 
+      return false
+    }
   }
 
   // Validar RUT
