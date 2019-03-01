@@ -3,7 +3,7 @@ Esta solución se ha desarrollado para validar distintas competencias en desarro
 
 
 ## Información del Proyecto
-El proyecto consiste en una App Mobile que muestra una lista de usuarios activos e inactivos de Haibu, es posible filtrar la busqueda de usuarios por su nombre y además conocer la información detallada de cada usuario.
+El proyecto consiste en una App Mobile que muestra una lista de usuarios activos e inactivos de Haibu, es posible filtrar la búsqueda de usuarios por su nombre y además conocer la información detallada de cada usuario.
 
 
 ## Dependencias
